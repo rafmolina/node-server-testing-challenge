@@ -11,7 +11,7 @@ router.get('/', (req,res)=>{
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/api/knights', (req, res) => {
     Knights.insert(req.body)
     .then(knight =>{
       res.status(200).json(knight)
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     })
   });
 
-  router.delete("/:id", (req, res) => {
+  router.delete("/api/knights/:id", (req, res) => {
     const id = req.params.id;
     Knights.remove(id)
       .then(res => {
